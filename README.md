@@ -70,6 +70,12 @@ Capistrano::Env.use do |env|
 end
 ```
 
+If you want to put the file other then root directory, set the directory with :dotenv_target_path. For example:
+
+```ruby
+set :dotenv_target_path, "#{release_path}/web"
+```
+
 ### 2. deploy
 
 ```

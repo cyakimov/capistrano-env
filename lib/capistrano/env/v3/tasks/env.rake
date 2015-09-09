@@ -2,7 +2,8 @@ namespace :capenv do
   desc 'copy .env to release_path'
   task :copy do
     on roles(:all) do
-      upload! StringIO.new(Capistrano::Env.to_s), "#{release_path}/#{Capistrano::Env.filename}", mode: Capistrano::Env.filemode
+      path = fetch(:dotenv_target_path, release_path)
+      upload! StringIO.new(Capistrano::Env.to_s), "#{path}/#{Capistrano::Env.filename}", mode: Capistrano::Env.filemode
     end
   end
 
